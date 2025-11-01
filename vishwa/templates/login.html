@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>User Login</title>
+</head>
+<body>
+    <div>
+        <h2><center>
+            <a class="navbar-brand" href="/products" style="color: dodgerblue;"><b>&nbsp;Vishwa</b></a>
+        </center></h2>
+        <h5><center>
+            <a class="navbar-brand" style="font-size: smaller;color: dodgerblue;" href="#"><i>&nbsp;E-cart</i></a>
+        </center></h5>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 mt-5 mx-auto shadow p-5">
+                <h2 class="mb-5 text-center">Log in</h2>
+                {% if errmsg %}
+                    <div class="alert alert-primary" role="alert">
+                        {{errmsg}}
+                    </div>
+                {% endif %}
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="input1" class="form-label"><strong>Username</strong></label>
+                        <input type="text" class="form-control" name="uname" id="input1" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input2" class="form-label"><strong>Password</strong></label>
+                        <input type="password" class="form-control" name="upass" id="input2" placeholder="enter password">
+                    </div>
+                    <div class="mb-3">
+                        <center><input type="submit" class="btn btn-primary" value="Login"></center><br><br>
+                        <center>New User?&nbsp;&nbsp;&nbsp;<a href="/register" style="text-decoration: none;">Register</a></center>
+                    </div><br> 
+                    <small>By continuing, you agree to Vishwa E-cart's Terms of Use and Privacy Policy.</small> 
+                </form>
+            </div>
+        </div> 
+    </div>
+    
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+</html>

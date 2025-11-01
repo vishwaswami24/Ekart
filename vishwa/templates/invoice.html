@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="invoice.css">
+    <title>Invoice</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <img width="120px" src="logo.png" alt="No image">
+                <h2>Tax Invoice/Bill of Supply/Cash Memo</h2><br>
+                <p>(Original for Recepient)</p>
+            </div>
+            <div>
+                <small>Digitally Signed by <b>Vishwa E-cart Pvt. Ltd.</b></small><br>
+                <small>Date:<span id="datetime-display"></span></small>
+            </div><br>
+            <section class="block">
+                <span class="card1">
+                    <p id="h">Sold By:</p>
+                    <p>{{name}}</p>
+                    <p>{{address}}</p>
+                    <p>{{city}}, {{state}}, {{pin}}</p>
+                    <p>{{countrycode}}</p>
+                </span>
+                <span class="card2">
+                    <p id="h">Billing Address:</p><br>
+                    <p>{{name}}</p><br>
+                    <p>{{address}}</p><br>
+                    <p>{{city}}, {{state}}, {{pin}}</p><br>
+                    <p>{{countrycode}}</p><br>
+                    <p><b>State/UT code:</b>{{code}}</p>
+                </span>
+            </section><br>
+            <section class="block">
+                <span class="card1">
+                    <b>Order Number:</b><br>
+                    <b>Order Date:</b> <span id="date-display"></span><br><br>
+                    <b>Invoice Number:</b><br>
+                    <b>Invoice Date:</b> <span id="date-display1"></span><br>
+                </span>
+                <span class="card2">
+                    <p id="h">Shipping Address:</p><br>
+                    <p>{{name}}</p><br>
+                    <p>{{address}}</p><br>
+                    <p>{{city}}, {{state}}, {{pin}}</p><br>
+                    <p>{{countrycode}}</p><br>
+                    <p><b>State/UT code:</b>{{code}}</p>
+                </span>
+            </section>
+            
+            <table class="table" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Sr.No.</th>
+                        <th>Description</th>
+                        <th>Unit Price</th>
+                        <th>Qty</th>
+                        <th>Net Amount</th>
+                        <th>Tax Rate</th>
+                        <th>Tax Type</th>
+                        <th>Tax Amount</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                {% for sale in sales %}
+                    <tr>
+                        <td rowspan="2">{{  }}</td>
+                        <td rowspan="2">{{  }}</td>
+                        <td rowspan="2">&#8377;{{  }}</td>
+                        <td rowspan="2">{{  }}</td>
+                        <td rowspan="2">&#8377;{{  }}</td>
+                        <td>9%</td>
+                        <td>CGST</td>
+                        <td>&#8377;{{  }}</td>
+                        <td>&#8377;{{  }}</td>
+                    </tr>
+                    <tr>
+                        <td>9%</td>
+                        <td>SGST</td>
+                        <td>&#8377;{{  }}</td>
+                        <td>&#8377;{{  }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="7">Total:</td>
+                    <td>{{}}</td>
+                    <td>{{}}</td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td colspan="9">
+                            <div>
+                                <h4 id="1">For {{}}:</h4>
+                                <h5 id="2">Authorised Signatory</h5>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p>Tax is not payable under reverse charge.</p>
+        </div>
+        <div class="footer">
+            <p>Vishwa E-cart Pvt. Ltd.</p>
+            <p>Please note that this invoice is not a demand for payment.</p>
+        </div>
+    </div>
+    <script>
+        const datetimeDisplayElement = document.getElementById("datetime-display");
+        const dateDisplayElement = document.getElementById("date-display");
+        const dateDisplayElement1 = document.getElementById("date-display1");
+        const currentDateTime = new Date();
+        const datetime = currentDateTime.toLocaleString('en-GB');
+        const date = currentDateTime.toLocaleDateString('en-GB');
+        datetimeDisplayElement.textContent = `${datetime}`;
+        dateDisplayElement.textContent = dateDisplayElement1.textContent = `${date}`;
+    </script>
+</body>
+</html>

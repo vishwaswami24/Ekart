@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>User Registration</title>
+</head>
+<body>
+    <div>
+        <h2><center>
+            <a class="navbar-brand" href="/products" style="color: dodgerblue;"><b>&nbsp;Vishwa</b></a>
+        </center></h2>
+        <h5><center>
+            <a class="navbar-brand" style="font-size: smaller;color: dodgerblue;" href="#"><i>&nbsp;E-cart</i></a>
+        </center></h5>
+    </div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-4 mt-5 mx-auto shadow p-5">
+                <h2 class="mb-5 text-center">User Registration</h2>
+                {% if errmsg %}
+                    <div class="alert alert-danger" role="alert">
+                        {{errmsg}}
+                    </div>
+                {% endif %}
+                {% if success %}
+                    <div class="alert alert-success" role="alert">
+                        {{success}}
+                    </div>
+                {% endif %}    
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="input1" class="form-label"><strong>First name</strong></label>
+                        <input type="text" class="form-control" name="ufname" id="input1" placeholder="enter first name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input2" class="form-label"><strong>Last name</strong></label>
+                        <input type="text" class="form-control" name="ulname" id="input2" placeholder="enter last name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input3" class="form-label"><strong>Email</strong></label>
+                        <input type="email" class="form-control" name="uemail" id="input3" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input4" class="form-label"><strong>Password</strong></label>
+                        <input type="password" class="form-control" name="upass" id="input4" placeholder="enter password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input5" class="form-label"><strong>Confirm Password</strong></label>
+                        <input type="password" class="form-control" name="ucpass" id="input5" placeholder="enter password">
+                    </div>
+                    <div class="mb-3">
+                        <center><input type="submit" class="btn btn-primary" value="Register"></center><br><br>
+                        <center>Already User?&nbsp;&nbsp;&nbsp;<a href="/login" style="text-decoration: none;">Login</a></center>
+                    </div><br> 
+                    <small>By continuing, you agree to Vishwa E-cart's Terms of Use and Privacy Policy.</small> 
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+</body>
+</html>

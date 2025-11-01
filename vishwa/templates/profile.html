@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+ 
+{% load static %} 
+
+{% block 'main' %}
+
+<div class="row mx-auto">
+    <div class="col-md-4 m-3">
+        <div class="d-flex flex-column align-items-center p-3 py-5 border border-white rounded" style="background-image: linear-gradient(rgb(172, 255, 255),rgb(80, 80, 255));">         
+            {% for x in data %}
+                {% if forloop.counter == 1 %}
+                    {% if x.gender == "Male" %}    
+                        <img class="rounded-circle mt-5" id="image" width="150px" alt="No image" src="static/images/man.png">
+                    {% else %}
+                        <img class="rounded-circle mt-5" id="image" width="150px" alt="No image" src="static/images/woman.png"> 
+                    {% endif %}
+                    <br><br><br>
+                    <section class="p-3 rounded" style="background-color: rgb(255, 255, 255);">
+                        <h3 style="text-align: center;">{{x.userid.first_name}}&nbsp;{{x.userid.last_name}}</h3><hr>
+                        <table class="table table-borderless">
+                            <tr>
+                                <td><i class="bi bi-envelope-at-fill"></i></td>
+                                <td><p>{{x.userid.email}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-telephone-fill"></td>
+                                <td></i><p>{{x.mobile}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-geo-alt-fill"></i></td>
+                                <td><p>{{x.address}}&nbsp;{{x.state}}&nbsp;{{x.country}}&nbsp;{{x.pincode}}</p></td>
+                            </tr>
+                        </table>
+                    </section>      
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-7 border-right">
+        <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right">Personal Information</h4>
+            </div>
+      
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">Name</label>
+                        <input type="text" class="form-control" name="fname" placeholder="name" value="{{x.user.first_name}}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Surname</label>
+                        <input type="text" class="form-control" name="lname" placeholder="surname" value="{{x.user.last_name}}" required>
+                    </div>
+                    <div class="col-md-6"><br/>
+                        <label class="labels">Gender</label><br/>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male" />
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                          </div>
+                          
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female" />
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                          </div>
+                          
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Other" />
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Mobile Number</label>
+                        <input type="number" class="form-control" name="mobile" placeholder="enter phone number" value="{{x.}}" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Address</label>
+                        <input type="text" class="form-control" name="add" placeholder="enter address" value="{{x.}}" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Pincode</label>
+                        <input type="text" class="form-control" name="pin" placeholder="enter area pincode" value="{{x.}}" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Email ID</label>
+                        <input type="text" class="form-control" name="mail" placeholder="enter email id" value="{{x.user.email}}" required>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="labels">State/Region</label>
+                        <input type="text" class="form-control" name="state" placeholder="state" value="{{x.}}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Country</label>
+                        <input type="text" class="form-control" name="country" placeholder="country" value="{{x.}}" required>
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" href="/profile" type="submit">Save Profile</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock 'main' %}

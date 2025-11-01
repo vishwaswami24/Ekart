@@ -1,0 +1,80 @@
+.container {
+    margin: 50px; font-family: Arial;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 5px;
+    vertical-align: top;
+    text-align: center;
+    border: 1px solid #000;
+}
+.table thead {
+    background-color: gainsboro;
+}
+.table table-hover {
+    background-color: white;
+}
+.table div {
+    float: right;
+    h4 {
+            margin-top: 5px; 
+            padding-bottom: 20px;
+    }
+    h5 {
+        margin-bottom: 5px;
+    }
+}
+
+.footer {
+    font-size: 10px;
+    position:relative;
+}
+.footer p{
+    text-align: center;
+}
+
+.card-header {
+    display: inline-flex;
+}
+
+.card-header p{
+    position:absolute; 
+    float: right;
+    right: 60px;
+    margin-top: 50px;
+}
+
+.card-header h2{
+    position:absolute; 
+    float: right; 
+    right: 60px;
+}
+.card1 p{
+    margin: 0;
+    padding: 0;
+}
+#h {
+        font-weight: bold;
+}
+.card2 p{
+    margin: 0;
+    padding: 0;
+    float: right; 
+    right: 50px; 
+}
+.block {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.block scan {
+    display: inline-block;
+}

@@ -1,0 +1,37 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+{% block 'main' %}
+
+
+
+
+
+{% endblock 'main' %}
+
+{% include 'footer.html' %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+  // Initialize Bootstrap dropdowns after page load
+  document.addEventListener('DOMContentLoaded', function() {
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+      return new bootstrap.Dropdown(dropdownToggleEl)
+    });
+  });
+
+  // Update cart count on page navigation
+  window.addEventListener('load', function() {
+    updateCartCount();
+  });
+
+  // Update cart count when page becomes visible (after navigation)
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+      updateCartCount();
+    }
+  });
+</script>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<br>
+    <div class="container">
+        <div class="row">
+            <h3>Help Center | 24 &times; 7 Customer Care Support</h3><hr>
+            <div class="col-md-5 mx-auto shadow p-5" style="background-color:azure;">
+                <h2 class="mb-3">Contact Us</h2><hr>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="input1" class="form-label"><strong>Name</strong></label>
+                        <input type="text" class="form-control" name="iname" id="input1" placeholder="enter name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input2" class="form-label"><strong>Email</strong></label>
+                        <input type="email" class="form-control" name="imail" id="input2" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input3" class="form-label"><strong>Mobile</strong></label>
+                        <input type="number" class="form-control" name="imail" id="input3" placeholder="enter number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input3" class="form-label"><strong>Message your issue</strong></label>
+                        <textarea type="text" class="form-control" name="imsg" id="input3" cols="15" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </form>    
+            </div>
+            <div class="col-md-1"></div><br>
+            <div class="col-md-6">
+                <h2 class="mb-3">Visit our Company at</h2>
+                <h5><i class="bi bi-building-fill text-primary"></i></h5>
+                <hr>
+                2nd Floor, Landmark Building,<br>
+                Near FC College,<br>
+                Pune-411002,<br>
+                Maharashtra,<br>
+                Contact: 814990365<br><br><br>
+                <h5><i class="bi bi-geo-alt-fill text-primary"></i></h5>
+                <hr>
+                <div class="col-md-12 mt-3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2056221558146!2d73.84103339999996!3d18.51960790000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf3ec1207915%3A0xb73335cd0d52335c!2sItvedant%20Pvt%20Ltd%20Pune!5e0!3m2!1sen!2sin!4v1686646065926!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" title="Google Maps location of Itvedant Pvt Ltd Pune"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <br>
+
+{% endblock 'main' %}

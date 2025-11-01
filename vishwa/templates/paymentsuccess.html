@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<div class="row mt-5">
+    <div class="col-md-4 mx-auto shadow p-5" style="text-align: center; background-color: #E1F4E5;">
+        <img src="static/images/successicon.gif" alt="No image" width="200px" style="border-radius: 75%;">
+        <br><br>
+        <h2 class="text-success">Payment Successful!</h2>
+        <p>Thanks for Shopping !!</p>
+        <p>Visit Again.</p>
+        <p><a href="/products"><button class="btn btn-primary">Home</button></a></p>
+    </div>
+</div><br><br><br><br>
+{% endblock 'main' %}
